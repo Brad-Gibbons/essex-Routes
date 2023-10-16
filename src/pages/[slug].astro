@@ -1,0 +1,59 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Footer from "../components/Footer.astro";
+export async function getStaticPaths() {
+	const routeData = [
+		{
+			slug: "chatam",
+			title:
+				" Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, consectetur!",
+			intro:
+				" Lorem ipsum, dolor sit amet consectetur adipisicing elit. At qui possimus sed odio maiores. Ea excepturi ut illum optio reprehenderit.",
+			steps: {
+				1: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis atque voluptate eveniet quos libero vitae, sunt cumque animi ab corrupti.",
+				2: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis atque voluptate eveniet quos libero vitae, sunt cumque animi ab corrupti.",
+				3: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis atque voluptate eveniet quos libero vitae, sunt cumque animi ab corrupti.",
+			},
+		},
+		{
+			slug: "chatam",
+			title:
+				" Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, consectetur!",
+			intro:
+				" Lorem ipsum, dolor sit amet consectetur adipisicing elit. At qui possimus sed odio maiores. Ea excepturi ut illum optio reprehenderit.",
+			steps: {
+				1: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis atque voluptate eveniet quos libero vitae, sunt cumque animi ab corrupti.",
+				2: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis atque voluptate eveniet quos libero vitae, sunt cumque animi ab corrupti.",
+				3: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis atque voluptate eveniet quos libero vitae, sunt cumque animi ab corrupti.",
+			},
+		},
+		{
+			slug: "chatam",
+			title:
+				" Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, consectetur!",
+			intro:
+				" Lorem ipsum, dolor sit amet consectetur adipisicing elit. At qui possimus sed odio maiores. Ea excepturi ut illum optio reprehenderit.",
+			steps: {
+				1: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis atque voluptate eveniet quos libero vitae, sunt cumque animi ab corrupti.",
+				2: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis atque voluptate eveniet quos libero vitae, sunt cumque animi ab corrupti.",
+				3: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis atque voluptate eveniet quos libero vitae, sunt cumque animi ab corrupti.",
+			},
+		},
+	];
+	return routeData.map((route) => ({
+		params: {
+			slug: route.slug,
+		},
+		props: {
+			route,
+		},
+	}));
+}
+
+const { Content, route } = Astro.props.route;
+---
+
+<Layout title={route.title}>
+	<h2>Hello</h2>
+</Layout>
