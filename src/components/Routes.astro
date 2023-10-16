@@ -1,0 +1,56 @@
+---
+import Card from "./Card.astro";
+
+const routesData = [
+	{
+		title: "Chelmsford",
+		body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam quaerat repellendus temporibus facilis cumque suscipit natus fuga, impedit commodi fugiat",
+	},
+	{
+		title: "Chelmsford",
+		body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam quaerat repellendus temporibus facilis cumque suscipit natus fuga, impedit commodi fugiat",
+	},
+];
+---
+
+<section class="features">
+	<div class="container">
+		{routesData.map((route) => 
+    
+    <Card>
+      <h3>{route.title}</h3>
+      <p>{route.body}</p>
+    </Card>
+    )}
+	</div>
+</section>
+
+<style>
+
+
+/* Cards */
+.features .container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  padding: 0 20px;
+  margin: 30px auto;
+}
+
+
+@media (max-width: 960px) {
+  .logos-small {
+    display: block;
+    margin: auto;
+  }
+  .logos {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .features .container {
+    grid-template-columns: 1fr;
+  }
+
+</style>
