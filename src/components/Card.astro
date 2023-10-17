@@ -1,12 +1,8 @@
 ---
-export interface Props {
-	dark?: boolean;
-}
-
-const { dark = false } = Astro.props as Props;
+const { area = 'testing prop'} = Astro.props 
 ---
 
-<div class={`card ${dark && "dark"}`}>
+<div class={`card`} area={area}>
 	<slot />
 </div>
 
@@ -21,5 +17,11 @@ const { dark = false } = Astro.props as Props;
 	.dark {
 		background: var(---color-primary);
 		color: white;
+	}
+	.filterDiv {
+		display: none;
+	}
+	.show {
+		display: block;
 	}
 </style>

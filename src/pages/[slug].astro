@@ -1,59 +1,45 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
-import Footer from "../components/Footer.astro";
+
 export async function getStaticPaths() {
-	const routeData = [
-		{
-			slug: "chatam",
-			title:
-				" Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, consectetur!",
-			intro:
-				" Lorem ipsum, dolor sit amet consectetur adipisicing elit. At qui possimus sed odio maiores. Ea excepturi ut illum optio reprehenderit.",
-			steps: {
-				1: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis atque voluptate eveniet quos libero vitae, sunt cumque animi ab corrupti.",
-				2: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis atque voluptate eveniet quos libero vitae, sunt cumque animi ab corrupti.",
-				3: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis atque voluptate eveniet quos libero vitae, sunt cumque animi ab corrupti.",
-			},
-		},
-		{
-			slug: "chatam",
-			title:
-				" Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, consectetur!",
-			intro:
-				" Lorem ipsum, dolor sit amet consectetur adipisicing elit. At qui possimus sed odio maiores. Ea excepturi ut illum optio reprehenderit.",
-			steps: {
-				1: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis atque voluptate eveniet quos libero vitae, sunt cumque animi ab corrupti.",
-				2: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis atque voluptate eveniet quos libero vitae, sunt cumque animi ab corrupti.",
-				3: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis atque voluptate eveniet quos libero vitae, sunt cumque animi ab corrupti.",
-			},
-		},
-		{
-			slug: "chatam",
-			title:
-				" Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, consectetur!",
-			intro:
-				" Lorem ipsum, dolor sit amet consectetur adipisicing elit. At qui possimus sed odio maiores. Ea excepturi ut illum optio reprehenderit.",
-			steps: {
-				1: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis atque voluptate eveniet quos libero vitae, sunt cumque animi ab corrupti.",
-				2: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis atque voluptate eveniet quos libero vitae, sunt cumque animi ab corrupti.",
-				3: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis atque voluptate eveniet quos libero vitae, sunt cumque animi ab corrupti.",
-			},
-		},
-	];
-	return routeData.map((route) => ({
+	const posts = await Astro.glob("../posts/*.md");
+
+	return posts.map((post) => ({
 		params: {
-			slug: route.slug,
+			slug: post.frontmatter.slug,
 		},
 		props: {
-			route,
+			post,
 		},
 	}));
 }
 
-const { Content, route } = Astro.props.route;
+const { Content, frontmatter } = Astro.props.post;
 ---
 
-<Layout title={route.title}>
-	<h2>Hello</h2>
+<Layout>
+	<section class="page-content">
+		<div class="container">
+			<Card>
+				<a href="/blog" class="btn">Go back</a>
+				<h2>{frontmatter.title}</h2>
+				<p><strong>{frontmatter.distanceK}</strong></p>
+				<p>{frontmatter.excerpt}</p>
+				<div class="directions">
+					<Content />
+				</div>
+
+				<div>
+					Added on {new Date(frontmatter.date).toLocaleDateString()}
+				</div>
+			</Card>
+		</div>
+	</section>
 </Layout>
+
+<style is:global>
+	li {
+		margin-left: 10px;
+	}
+</style>

@@ -1,25 +1,19 @@
 ---
 import Card from "./Card.astro";
 
-const routesData = [
-	{
-		title: "Chelmsford",
-		body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam quaerat repellendus temporibus facilis cumque suscipit natus fuga, impedit commodi fugiat",
-	},
-	{
-		title: "Chelmsford",
-		body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam quaerat repellendus temporibus facilis cumque suscipit natus fuga, impedit commodi fugiat",
-	},
-];
+const posts = await Astro.glob("../posts/*.md");
 ---
 
 <section class="features">
 	<div class="container">
-		{routesData.map((route) => 
+		{posts.map((post) => 
     
     <Card>
-      <h3>{route.title}</h3>
-      <p>{route.body}</p>
+      <h3>{post.frontmatter.title}</h3>
+      <p>{post.frontmatter.body}</p>
+      <p>{post.frontmatter.distanceK} | {post.frontmatter.area}</p>
+      <a class="btn" href={`/${post.frontmatter.slug}`}>See route</a>
+
     </Card>
     )}
 	</div>

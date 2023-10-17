@@ -4,36 +4,17 @@ import Layout from "../layouts/Layout.astro";
 import Showcase from "../components/Showcase.astro";
 import Routes from "../components/Routes.astro";
 import Tabs from "../components/Tabs.astro";
-const res = await fetch("https://jsonplaceholder.typicode.com/users?_limit=10");
-
-const users = await res.json();
 ---
 
 <Layout>
 	<Showcase />
-	<Routes />
 	<section class="page-content">
 		<div class="container">
-			<h2>Get Started With Astro</h2>
+			<h2>Get Walking</h2>
 			<p>
-				Get a new Astro project up and running locally with our helpful
-				create-astro CLI wizard!
+				Welcome to Essex Routes, your ultimate destination for discovering the natural beauty and cultural richness of Essex, United Kingdom, one step at a time. Whether you're an avid hiker, a leisurely stroller, or simply seeking a new way to connect with this stunning county, our website is your gateway to a diverse range of walking routes that showcase Essex's picturesque landscapes, historic sites, and hidden gems. From the tranquil shores of the Thames estuary to the lush greenery of Epping Forest, our meticulously curated collection of walking trails will lead you on a journey through Essex's enchanting countryside, charming villages, and vibrant towns. Join us in uncovering the county's countless stories, all found along the winding paths of Essex's walking adventures.
 			</p>
-
-			<Tabs
-				headings={["npm", "pnpm", "yarn"]}
-				contents={["$npm create astro", "create latest", "yarn astro create"]}
-			>
-				<h3>Start Building</h3>
-				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ipsum
-					deserunt inventore ut voluptate, officia maiores repellat tenetur
-					praesentium omnis est ex tempora a necessitatibus reiciendis at et
-					dignissimos. Ipsam eius consequuntur cupiditate aperiam porro, esse
-					laborum impedit nesciunt ut voluptatum assumenda aspernatur libero
-					iusto error molestias dolorum, necessitatibus labore?
-				</p>
-			</Tabs>
 		</div>
 	</section>
+	<Routes />
 </Layout>
