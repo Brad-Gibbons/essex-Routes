@@ -1,17 +1,17 @@
 ---
 import Card from "./Card.astro";
 
-const posts = await Astro.glob("../posts/*.md");
+const posts = await Astro.glob("../posts/main-*.md");
 ---
 
 <section class="features">
 	<div class="container">
-		{posts.map((post) => 
-    
+		{
+    posts.map((post) => 
+   
     <Card>
       <h3>{post.frontmatter.title}</h3>
-      <p>{post.frontmatter.body}</p>
-      <p>{post.frontmatter.distanceK} | {post.frontmatter.area}</p>
+      <p>{post.frontmatter.distanceK} Kilometres | {post.frontmatter.area}</p>
       <a class="btn" href={`/${post.frontmatter.slug}`}>See route</a>
 
     </Card>

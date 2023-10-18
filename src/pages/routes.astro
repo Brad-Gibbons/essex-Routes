@@ -2,24 +2,24 @@
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import Showcase from "../components/Showcase.astro";
+import distanceIcon from '../images/distance.png'
 const posts = await Astro.glob("../posts/*.md");
 ---
 
 <Layout title="Astro Blog">
 	<Showcase heading="Routes database" text="Find all of our routes here" />
 	<section class="page-content">
-		<div class="container">
-			<button class="filter east">East Essex routes</button>
-			<button class="filter west">West Essex routes</button>
+		<div class="container" id="myBtnContainer">
+			<button class="btn filter east">East Essex routes</button>
+			<button class="btn filter west">West Essex routes</button>
 		</div>
 		<div class="container">
 			{
 				posts.map((post) => (
 					<Card area={post.frontmatter.area}>
 						<h3>{post.frontmatter.title}</h3>
-						<p>{post.frontmatter.distanceK}</p>
+						<p><img src={distanceIcon.src} class="icons"/><strong>{post.frontmatter.distanceK} Kilometres | {post.frontmatter.area}</strong></p>
 						<p>{post.frontmatter.excerpt}</p>
-						<p>{post.frontmatter.area}</p>
 						<a class="btn" href={`/${post.frontmatter.slug}`}>
 							Read more
 						</a>
@@ -47,11 +47,14 @@ const posts = await Astro.glob("../posts/*.md");
     buttons.forEach((button) => {
     button.addEventListener('click', () => {
 		if(button.classList.contains('east')) {
+			// Add active class to btn
+			const btn = document.getElementsByClassName("east")
+
 			// Grab selected cards and make visible again / check they are not filtered out 
 			const chosenCards = document.querySelectorAll('div[area="East Essex"]')
 			chosenCards.forEach(e => e.classList.remove('filterDiv'))
-		// grab all cards that dont have east as area 
-		const filteredCards = document.querySelectorAll('div[area]:not([area="East Essex"])')
+			// grab all cards that dont have east as area 
+			const filteredCards = document.querySelectorAll('div[area]:not([area="East Essex"])')
 		// hide them
 		filteredCards.forEach(e => e.classList.add('filterDiv'))
 	  } else if (button.classList.contains('west')) {
@@ -65,13 +68,7 @@ const posts = await Astro.glob("../posts/*.md");
     });
   });
 
-  function addClas() {
 
-  }
-
-  function removeClass() {
-
-  }
 </script>
 <style>
 	.filterDiv {
@@ -80,5 +77,17 @@ const posts = await Astro.glob("../posts/*.md");
 	.show {
 		display: block;
 	}
-	
+	.filter {
+		margin-bottom: 15px;
+	}
+	/* Add a light grey background on mouse-over */
+	.btn:hover {
+	background-color: #788A6A;
+	}
+
+	/* Add a dark background to the active button */
+	.btn.active {
+	background-color: #666;
+	color: white;
+	}
 </style>

@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+import distanceIcon from '../images/distance.png'
+const APIKEY = import.meta.env.APIKEY
 
 export async function getStaticPaths() {
 	const posts = await Astro.glob("../posts/*.md");
@@ -16,16 +18,25 @@ export async function getStaticPaths() {
 }
 
 const { Content, frontmatter } = Astro.props.post;
+
+const weather = await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${frontmatter.lat}&lon=${frontmatter.long}&units=metric&exclude=minutely,hourly,daily&appid=${APIKEY}`)
+
+
+const data = await weather.json();
+console.log(data)
 ---
 
 <Layout>
 	<section class="page-content">
 		<div class="container">
 			<Card>
-				<a href="/blog" class="btn">Go back</a>
+				<a href="/routes" class="btn">Go back</a>
 				<h2>{frontmatter.title}</h2>
-				<p><strong>{frontmatter.distanceK}</strong></p>
+				
+				<p><img src={distanceIcon.src} class="icons"/><strong>{frontmatter.distanceK} Kilometres</strong></p>
 				<p>{frontmatter.excerpt}</p>
+				<h3>Weather</h3>
+				<p>It's currently {data.current.temp} degrees in {frontmatter.title}</p>
 				<div class="directions">
 					<Content />
 				</div>
@@ -40,6 +51,8 @@ const { Content, frontmatter } = Astro.props.post;
 
 <style is:global>
 	li {
-		margin-left: 10px;
+		margin-left: 30px;
+		margin-right: 30px;
 	}
+	
 </style>

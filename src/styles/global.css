@@ -1,6 +1,6 @@
 :root {
-    --color-primary: #0f172a;
-    --color-secondary: #6b21a8;
+    --color-primary: #353D2F;
+    --color-secondary: #515B3A;
   }
   
   *,
@@ -47,6 +47,10 @@
     margin: 0 auto;
     padding: 0 30px;
   }
+  .icons {
+		width:25px;
+		margin-right: 10px;
+	}
   
   .btn {
     display: inline-block;
