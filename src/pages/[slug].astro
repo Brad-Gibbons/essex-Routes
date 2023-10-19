@@ -19,11 +19,15 @@ export async function getStaticPaths() {
 
 const { Content, frontmatter } = Astro.props.post;
 
-const weather = await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${frontmatter.lat}&lon=${frontmatter.long}&units=metric&exclude=minutely,hourly,daily&appid=${APIKEY}`)
+const weather = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${frontmatter.lat}&lon=${frontmatter.long}&units=metric&appid=${APIKEY}`)
+
+// (`https://api.openweathermap.org/data/3.0/onecall?lat=${frontmatter.lat}&lon=${frontmatter.long}&units=metric&exclude=&appid=${APIKEY}`)
 
 
 const data = await weather.json();
-console.log(data)
+
+const forecast = data.weather
+
 ---
 
 <Layout>
@@ -36,7 +40,9 @@ console.log(data)
 				<p><img src={distanceIcon.src} class="icons"/><strong>{frontmatter.distanceK} Kilometres</strong></p>
 				<p>{frontmatter.excerpt}</p>
 				<h3>Weather</h3>
-				<p>It's currently {data.current.temp} degrees in {frontmatter.title}</p>
+				<p>It's currently {data.main.temp} degrees in {frontmatter.title}</p>
+				<p>{forecast.main}</p>
+
 				<div class="directions">
 					<Content />
 				</div>

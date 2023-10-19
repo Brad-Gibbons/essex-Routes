@@ -1,5 +1,6 @@
 ---
 import Card from "./Card.astro";
+import distanceIcon from '../images/distance.png'
 
 const posts = await Astro.glob("../posts/main-*.md");
 ---
@@ -11,7 +12,7 @@ const posts = await Astro.glob("../posts/main-*.md");
    
     <Card>
       <h3>{post.frontmatter.title}</h3>
-      <p>{post.frontmatter.distanceK} Kilometres | {post.frontmatter.area}</p>
+      <p><img src={distanceIcon.src} class="icons"/>{post.frontmatter.distanceK} Kilometres | {post.frontmatter.area}</p>
       <a class="btn" href={`/${post.frontmatter.slug}`}>See route</a>
 
     </Card>
