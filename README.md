@@ -1,54 +1,30 @@
-# Astro Starter Kit: Basics
+--- 
+# Explore Essex Routes
 
-```sh
-npm create astro@latest -- --template basics
-```
+**Welcome to Explore Essex Routes!**
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Introduction
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+Explore Essex Walking Routes is your ultimate destination for discovering the scenic and cultural wonders of Essex County, UK, on foot. Whether you're an avid hiker, a leisurely stroller, or a newcomer looking to explore the beauty of Essex, our website offers a diverse collection of walking routes that showcase the county's picturesque landscapes, historic sites, and hidden gems. This site is built with the Astro framework, ensuring fast loading times and a delightful user experience.
 
-## 🚀 Project Structure
+## Features
 
-Inside of your Astro project, you'll see the following folders and files:
+- **Interactive Maps:** Explore walking routes via interactive maps, providing detailed trail information. (Coming soon)
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- **Route Descriptions:** Access comprehensive route descriptions, including distance, difficulty, and notable landmarks.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+- **Photo Galleries:** View images and galleries of each route to get a preview of the breathtaking scenery. (Coming soon)
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- **Responsive Design:** Enjoy a seamless experience on both desktop and mobile devices.
 
-Any static assets, like images, can be placed in the `public/` directory.
+- **Search Functionality:** Easily search and filter routes based on your preferences. (Coming soon)
 
-## 🧞 Commands
+- **Accessibility:** We strive to make the site accessible to everyone, ensuring a smooth experience for all users.
 
-All commands are run from the root of the project, from a terminal:
+## Usage
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Explore Essex Walking Routes is designed to be user-friendly. Simply browse the website, search for walking routes, and explore the detailed information for each route. You can plan your walking adventures, read reviews from other users, and contribute your own experiences to the community.
 
-## 👀 Want to learn more?
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+--- 
