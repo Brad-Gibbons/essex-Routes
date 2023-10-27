@@ -1,4 +1,4 @@
---- 
+
 # Explore Essex Routes
 
 **Welcome to Explore Essex Routes!**
@@ -27,4 +27,4 @@ Explore Essex Walking Routes is your ultimate destination for discovering the sc
 Explore Essex Walking Routes is designed to be user-friendly. Simply browse the website, search for walking routes, and explore the detailed information for each route. You can plan your walking adventures, read reviews from other users, and contribute your own experiences to the community.
 
 
---- 
+
